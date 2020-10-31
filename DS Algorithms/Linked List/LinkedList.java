@@ -8,6 +8,23 @@ class LinkedList {
             next = null;
         }
     }
+    public void InsertNode(int index, int data) {
+        Node temp = new Node(data);              
+        Node prev = null, curr = head;           
+        for (int i = 0; i < index; i++) {        
+            if(curr == null)                     
+                break;                           
+            prev = curr;                         
+            curr = curr.next;                    
+        }                                        
+        if(prev == null){                        
+            temp.next = head;                    
+            head = temp;                         
+        } else {                                 
+            prev.next = temp;                    
+            temp.next = curr;                    
+        }                                        
+    }
     public void DisplayLinkedList(){
         Node temp = head;
         while(temp != null) {
@@ -24,5 +41,7 @@ class LinkedList {
         list.head.next = second;
         second.next = third;
         list.DisplayLinkedList();
+        list.InsertNode(2,0);       
+        list.DisplayLinkedList();   
     }
 }
