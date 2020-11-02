@@ -33,6 +33,11 @@ public class MaxHeap {
             shift_down(heap, max_ind, heap_size);
         }
     }
+    void deleteNode(int index) {
+        heap[index] = heap[heap_size - 1];
+        heap_size--;
+        shift_down(heap, index, heap_size);
+    }
     void displayHeap() {
         for(int i = 0; i < heap_size; i++) {
             System.out.print(heap[i] + " ");
@@ -42,6 +47,8 @@ public class MaxHeap {
     public static void main(String[] args) {
         int[] arr = {5, 3, 0, 1, 2, 4};
         MaxHeap myheap = new MaxHeap(arr, 6);
+        myheap.displayHeap();
+        myheap.deleteNode(1);
         myheap.displayHeap();
     }
 }
