@@ -47,6 +47,11 @@ public class MaxHeap {
             shift_down(heap, max_ind, heap_size);
         }
     }
+    int extractMax() {
+        int max_value = heap[0];
+        deleteNode(0);
+        return max_value;
+    }
     void deleteNode(int index) {
         if(index >= heap_size) {
             return;
@@ -76,6 +81,8 @@ public class MaxHeap {
         myheap.deleteNode(1);
         myheap.displayHeap();
         myheap.insertNode(6);
+        myheap.displayHeap();
+        System.out.println(myheap.extractMax());
         myheap.displayHeap();
     }
 }
